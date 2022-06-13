@@ -8,11 +8,22 @@ def main():
 
        # Control the entry point
        query_params = st.experimental_get_query_params()
+       view_file = "" # Default value
        if "view" in query_params:
               view = query_params["view"][0]
-              #view_file = current_path / view + ".py"
-              #stb.render_file(view)
+              current_path = Path(__file__).parent.absolute()
+              view_dict = {
+                     "true_or_false": current_path / "pages/05 TrueFalse/00_true_or_false.py",
+                     "single_choice": current_path / "pages/06 SingleChoice/00_single_choice.py",
+                     "multiple_choice": current_path / "pages/07 MultipleChoice/00_multiple_choice.py",
+                     "to_do_list": current_path / "pages/08 ToDoList/00_to_do_list.py",
+              }
+              if view in view_dict:
+                     view_file = view_dict[view]
+
+       if view_file:
               st.title("Should be rendering page: " + view)
+              stb.render_file(view_file)
        else:
               # Streamit book properties
               save_answers = True
@@ -30,6 +41,8 @@ def main():
                                                  "Single Choice Question",
                                                  "Multiple Choice Question",
                                                  "To Do List",
+                                                 "Text Input",
+                                                 "Code Input",
                                                  ], 
                                    paths=[
                                                  current_path / "pages/00_whats_new.py", 
@@ -42,6 +55,8 @@ def main():
                                                  current_path / "pages/06 SingleChoice",
                                                  current_path / "pages/07 MultipleChoice",
                                                  current_path / "pages/08 ToDoList", 
+                                                 current_path / "pages/09_text_input.py", 
+                                                 current_path / "pages/10_code_input.py", 
                                           ],
                                    icons=[
                                                  "code", 
@@ -53,6 +68,8 @@ def main():
                                                  "signpost-2",
                                                  "ui-radios",
                                                  "ui-checks",
+                                                 "check2-square",
+                                                 "check2-square",
                                                  "check2-square",
                                           ],
                                    save_answers=save_answers,

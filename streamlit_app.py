@@ -4,7 +4,7 @@ from pathlib import Path
 
 def main():
        # Streamlit webpage properties
-       st.set_page_config(layout="wide", page_icon="📚", page_title="Streamlit Book - ReadTheDocs Demo")
+       st.set_page_config(layout="wide", page_icon="📚", page_title="stb methods demo")
 
        # Control the entry point
        query_params = st.experimental_get_query_params()
@@ -15,7 +15,13 @@ def main():
               view_file = current_path / "docs" / view / f"00_{view}.py"
               print(view_file)
        if view_file:
+              # Render file
               stb.render_file(view_file)
+              # Add info on where to find the whole app
+              url = "https://stb_methods.streamlitapp.com/"
+              html_link = f'<a href="{url}" target="_blank">{url}</a>'
+              mkd = f"See full app at {html_link}"
+              st.markdown(mkd)
        else:
               # Streamit book properties
               save_answers = False

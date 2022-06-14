@@ -12,17 +12,9 @@ def main():
        if "view" in query_params:
               view = query_params["view"][0]
               current_path = Path(__file__).parent.absolute()
-              view_dict = {
-                     "true_or_false": current_path / "docs/05 TrueFalse/00_true_or_false.py",
-                     "single_choice": current_path / "docs/06 SingleChoice/00_single_choice.py",
-                     "multiple_choice": current_path / "docs/07 MultipleChoice/00_multiple_choice.py",
-                     "to_do_list": current_path / "docs/08 ToDoList/00_to_do_list.py",
-              }
-              if view in view_dict:
-                     view_file = view_dict[view]
-
+              view_file = current_path / "docs" / view / f"00_{view}.py"
+              print(view_file)
        if view_file:
-              st.title("Should be rendering page: " + view)
               stb.render_file(view_file)
        else:
               # Streamit book properties
@@ -36,13 +28,15 @@ def main():
                                                  "Multipages", 
                                                  "Answers", 
                                                  "Admin View", 
-                                                 "Colored Expanders",
                                                  "True/False Question",
                                                  "Single Choice Question",
                                                  "Multiple Choice Question",
                                                  "To Do List",
                                                  "Text Input",
                                                  "Code Input",
+                                                 "Echo",
+                                                 "Colored Expanders",
+                                                 "Share",
                                                  ], 
                                    paths=[
                                                  current_path / "docs/00_whats_new.py", 
@@ -50,13 +44,15 @@ def main():
                                                  current_path / "docs/02_multipage.py",
                                                  current_path / "docs/03_answers.py",
                                                  current_path / "docs/04_admin_view.py",
-                                                 current_path / "docs/05_colored_expanders.py",
-                                                 current_path / "docs/05 TrueFalse", 
-                                                 current_path / "docs/06 SingleChoice",
-                                                 current_path / "docs/07 MultipleChoice",
-                                                 current_path / "docs/08 ToDoList", 
-                                                 current_path / "docs/09_text_input.py", 
-                                                 current_path / "docs/10_code_input.py", 
+                                                 current_path / "docs/true_or_false", 
+                                                 current_path / "docs/single_choice",
+                                                 current_path / "docs/multiple_choice",
+                                                 current_path / "docs/to_do_list", 
+                                                 current_path / "docs/text_input", 
+                                                 current_path / "docs/code_input", 
+                                                 current_path / "docs/echo", 
+                                                 current_path / "docs/colored_expanders",
+                                                 current_path / "docs/share",
                                           ],
                                    icons=[
                                                  "code", 
@@ -68,6 +64,8 @@ def main():
                                                  "signpost-2",
                                                  "ui-radios",
                                                  "ui-checks",
+                                                 "check2-square",
+                                                 "check2-square",
                                                  "check2-square",
                                                  "check2-square",
                                                  "check2-square",

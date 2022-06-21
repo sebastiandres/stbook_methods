@@ -6,6 +6,8 @@ def main():
        # Streamlit webpage properties
        st.set_page_config(layout="wide", page_icon="📚", page_title="stb methods demo")
 
+       #stb.floating_button("https://sebastiandres.xyz")#, "bi-alarm", "green", "yellow")
+
        # Control the entry point
        query_params = st.experimental_get_query_params()
        view_file = "" # Default value
@@ -29,11 +31,7 @@ def main():
               stb.set_book_config(menu_title="streamlit_book",
                                    menu_icon="lightbulb",
                                    options=[
-                                                 "What's new on v0.7.0?",   
-                                                 "Core Features", 
-                                                 "Multipages", 
-                                                 "Answers", 
-                                                 "Admin View", 
+                                                 "What's new?",   
                                                  "True/False Question",
                                                  "Single Choice Question",
                                                  "Multiple Choice Question",
@@ -43,38 +41,24 @@ def main():
                                                  "Echo",
                                                  "Colored Expanders",
                                                  "Share",
+                                                 "Floating Button",
+                                                 "Answers", 
+                                                 "Admin View", 
                                                  ], 
                                    paths=[
                                                  current_path / "docs/00_whats_new.py", 
-                                                 current_path / "docs/01 Multitest", 
-                                                 current_path / "docs/02_multipage.py",
-                                                 current_path / "docs/03_answers.py",
-                                                 current_path / "docs/04_admin_view.py",
                                                  current_path / "docs/true_or_false", 
                                                  current_path / "docs/single_choice",
                                                  current_path / "docs/multiple_choice",
                                                  current_path / "docs/to_do_list", 
                                                  current_path / "docs/text_input", 
                                                  current_path / "docs/code_input", 
-                                                 current_path / "docs/echo", 
-                                                 current_path / "docs/colored_expanders",
-                                                 current_path / "docs/share",
-                                          ],
-                                   icons=[
-                                                 "code", 
-                                                 "robot", 
-                                                 "book", 
-                                                 "pin-angle", 
-                                                 "shield-lock",
-                                                 "paint-bucket",
-                                                 "signpost-2",
-                                                 "ui-radios",
-                                                 "ui-checks",
-                                                 "check2-square",
-                                                 "check2-square",
-                                                 "check2-square",
-                                                 "check2-square",
-                                                 "check2-square",
+                                                 current_path / "docs/goodies/00_echo.py", 
+                                                 current_path / "docs/goodies/00_colored_expanders.py",
+                                                 current_path / "docs/goodies/00_share.py",
+                                                 current_path / "docs/goodies/00_button.py",
+                                                 current_path / "docs/03_answers.py",
+                                                 current_path / "docs/04_admin_view.py",
                                           ],
                                    save_answers=save_answers,
                                    )

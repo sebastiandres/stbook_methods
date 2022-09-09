@@ -16,7 +16,9 @@ def main():
         view = query_params["view"][0]
         regex = str(current_path) + "/docs/*/*" + view + ".py"
         matching_files = glob(regex)
-    
+    else:
+        matching_files=[]
+
     # Show the single page or the whole app
     if len(matching_files)>0:
         view_file = sorted(matching_files)[0]

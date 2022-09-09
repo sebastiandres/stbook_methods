@@ -1,12 +1,10 @@
 import streamlit as st
 import streamlit_book as stb
 from pathlib import Path
-
+from glob import glob
 def main():
        # Streamlit webpage properties
        st.set_page_config(layout="wide", page_icon="📚", page_title="stb methods demo")
-
-       #stb.floating_button("https://sebastiandres.xyz")#, "bi-alarm", "green", "yellow")
 
        # Control the entry point
        query_params = st.experimental_get_query_params()
@@ -14,7 +12,9 @@ def main():
        if "view" in query_params:
               view = query_params["view"][0]
               current_path = Path(__file__).parent.absolute()
-              view_file = current_path / "docs" / view / f"00_{view}.py"
+              regex = str(current_path) + "/docs/*/*" + view + ".py"
+              matching_files = sorted(glob(regex))
+              view_file = sorted(matching_files)[0]
               print(view_file)
        if view_file:
               # Render file
@@ -61,6 +61,7 @@ def main():
                                                  current_path / "docs/04_admin_view.py",
                                           ],
                                    save_answers=save_answers,
+                                   display_page_info=False,
                                    )
 
 if __name__ == "__main__":

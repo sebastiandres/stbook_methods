@@ -61,7 +61,7 @@ def main():
                                     current_path / "docs/04_admin_view.py",
                                     ],
                             save_answers=save_answers,
-                            display_page_info=False,
+                            #display_page_info=False,
                             )
 
 if __name__ == "__main__":

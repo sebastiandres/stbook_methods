@@ -15,13 +15,12 @@ def main():
               regex = str(current_path) + "/docs/*/*" + view + ".py"
               matching_files = sorted(glob(regex))
               view_file = sorted(matching_files)[0]
-              print(view_file)
        if view_file:
               # Render file
               stb.render_file(view_file)
               # Add info on where to find the whole app
-              url = "https://stb_methods.streamlitapp.com/"
-              html_link = f'<a href="{url}" target="_blank">{url}</a>'
+              url = "https://stbook.streamlitapp.com/"
+              html_link = f'[{url}]({url})'
               mkd = f"See full app at {html_link}"
               st.markdown(mkd)
        else:

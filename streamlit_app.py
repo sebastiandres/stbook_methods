@@ -24,7 +24,7 @@ def main():
         view_file = sorted(matching_files)[0]
         stb.render_file(view_file)
         # Add info on where to find the whole app
-        url = "https://stbook.streamlitapp.com/"
+        url = "https://stbook-methods.streamlitapp.com/"
         html_link = f'[{url}]({url})'
         mkd = f"See full app at {html_link}"
         st.markdown(mkd)
